@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from app import db, todos
 
+
 app = Flask(__name__)
 
 db.drop_all()

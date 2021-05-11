@@ -1,6 +1,7 @@
 from flask import Flask # Import Flask class
 from flask_sqlalchemy import SQLAlchemy # Import SQLAlchemy class
 
+
 app = Flask(__name__) # create Flask object
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:MyPassword1@34.105.132.205:3306/todos' # Set the connection string to connect to the database
@@ -15,7 +16,7 @@ class todos(db.Model):
 @app.route('/')
 def index():
     return "This is a TODO App"
-    
+
 if __name__=='__main__':
     app.run(debug=True, host='0.0.0.0')
 
