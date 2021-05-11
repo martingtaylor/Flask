@@ -28,5 +28,10 @@ class Users(db.Model):
     first_name = db.Column(db.String(30), nullable=False)
     last_name = db.Column(db.String(30), nullable=False)
 
+class ToDo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.String(100), nullable=False)
+    status = db.Column(db.String(10), nullable=False)
+
 if __name__=='__main__':
     app.run(debug==True, host='0.0.0.0')
