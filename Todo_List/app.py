@@ -17,6 +17,12 @@ class todos(db.Model):
 def index():
     return "This is a TODO App"
 
+@app.route('/todos')
+def todos_list():
+    return str(todos.query.all())
+
+
+
 if __name__=='__main__':
     app.run(debug=True, host='0.0.0.0')
 

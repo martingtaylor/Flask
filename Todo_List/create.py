@@ -9,11 +9,10 @@ app = Flask(__name__)
 db.drop_all()
 db.create_all()
 
+td = todos(Task="Do The Mowing", Complete=False)
+db.session.add(td)
+db.session.commit()
 
-
-#td = Todo_List(description="Do The Mowing", status="To Do")
-#db.session.add(td)
-#db.session.commit()
 
 #td = ToDo(description="Learn Flask", status="Doing")
 #db.session.add(td)
