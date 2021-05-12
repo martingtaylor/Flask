@@ -9,11 +9,12 @@ app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
 class BasicForm(FlaskForm):
     first_name = StringField('First Name')
     last_name = StringField('Last Name')
-    birthday = DateField("Birthday")
+    birthday = DateField("Birthday", format='%d/%md%Y')
     age = IntegerField("Age")
     salary = DecimalField("Salary", places=2)
     submit = SubmitField('Add Name')
-    food = SelectField(choices=['Indian', 'Chinese', 'Italian', 'Chips'])
+    food = SelectField(choices=[('Indian', 'Indian'), ('Chinese', 'Chinese'), ('Italian','Italian'), ('Chips', 'Chips')])
+
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
@@ -40,3 +41,4 @@ if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0')
      
 
+ 

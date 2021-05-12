@@ -1,4 +1,5 @@
 from flask import Flask # Import Flask class
+from flask import render_template
 from flask_sqlalchemy import SQLAlchemy # Import SQLAlchemy class
 
 
@@ -17,12 +18,48 @@ class todos(db.Model):
 def index():
     return "This is a TODO App"
 
+@app.route('/new')
+def _new():
+    td = todos(Task="New Todo", Complete=False)
+    db.session.add(td)
+    db.session.commit()
+    return "New Todo Added"
+
+@app.route('/complete/<int:id>')
+def complete(id):
+    td = todos.query.get(id)
+    td.Complete = True
+    db.session.commit()
+    return "Completed todo " + str(id)
+
+@app.route('/uncomplete/<int:id>')
+def uncomplete(id):
+    td = todos.query.get(id)
+    td.Complete = False
+    db.session.commit()
+    return "UnCompleted todo " + str(id)
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    td = todos.query.get(id)
+    db.session.delete(td)
+    db.session.commit()
+    return "Deleted todo " + str(id)
+
+@app.route('/index')
+def list_index():
+    all_todos = todos.query.all()
+    #out = ""
+    #for t in all_todos:
+    #    out = out + str(t.ID) + " "+ t.Task + " " + str(t.Complete) + "<br>"
+    return render_template('index.html', index_list=all_todos)
+
 @app.route('/todos')
 def todos_list():
     all_todos = todos.query.all()
     out = ""
     for t in all_todos:
-        out = out + "<P>" + t.Task + " " + str(t.Complete)
+        out = out + "<P>" + str(t.ID) + " "+ t.Task + " " + str(t.Complete)
     return out
 
 

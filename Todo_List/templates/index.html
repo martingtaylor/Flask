@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>ToDo List</title>
+    </head>
+    <body>
+        <div class='form'>
+            <form method='POST' action=''>
+                <table border=1>
+                <tr><th>ID</th><th>Task</th><th>Complete</th></tr>
+                {% for td in index_list %}
+                    <tr>
+                        <td> {{ td.ID }} </td>
+                        <td> {{ td.Task }} </td>
+                        <td> {% if td.Complete %}&#9989{% endif %} </td>
+                    </tr>
+                </p>
+                {% endfor %}
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
