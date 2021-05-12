@@ -1,9 +1,9 @@
 from application import app, db
 from application.models import Games
 
-@app.route('/add')
-def add():
-    new_game = Games(name="New Game")
+@app.route('/add/<newname>')
+def add(newname):
+    new_game = Games(name=newname)
     db.session.add(new_game)
     db.session.commit()
     return "Added new game to database"
