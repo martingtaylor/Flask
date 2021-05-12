@@ -22,7 +22,7 @@ def todos_list():
     all_todos = todos.query.all()
     out = ""
     for t in all_todos:
-        out = out + " " + t.Task
+        out = out + "<P>" + t.Task + " " + str(t.Complete)
     return out
 
 
