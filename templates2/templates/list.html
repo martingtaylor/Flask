@@ -1,11 +1,13 @@
 <html>
     <body>
         {% for user in users %}
-            <p>Good {{ tod }} {{ user }} 
-                {% if user == "ben" or user == "jay" %}
+            {% if user[0] == "b" %}
+                <p>Good {{ tod }} {{ user }} 
+                {% if user == "ben" %}
                     hows the Morris Dancing going
                 {% endif %}
             </p>
+            {% endif %}
         {% endfor %}
     </body>
 </html>
