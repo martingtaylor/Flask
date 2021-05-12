@@ -9,15 +9,14 @@ app = Flask(__name__)
 db.drop_all()
 db.create_all()
 
-td = todos(Task="Do The Mowing", Complete=False)
+td = todos(Task="Do The Mowing", Complete=True)
 db.session.add(td)
 db.session.commit()
 
+td = todos(Task="Learn Flask", Complete=False)
+db.session.add(td)
+db.session.commit()
 
-#td = ToDo(description="Learn Flask", status="Doing")
-#db.session.add(td)
-#db.session.commit()
-
-#td = ToDo(description="Learn Python", status="Done")
-#db.session.add(td)
-#db.session.commit()
+td = todos(Task="Learn Python", Complete=False)
+db.session.add(td)
+db.session.commit()

@@ -19,8 +19,11 @@ def index():
 
 @app.route('/todos')
 def todos_list():
-    return str(todos.query.all())
-
+    all_todos = todos.query.all()
+    out = ""
+    for t in all_todos:
+        out = out + " " + t.Task
+    return out
 
 
 if __name__=='__main__':
