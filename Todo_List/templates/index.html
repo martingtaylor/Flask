@@ -9,17 +9,17 @@
                 <tr><th>ID</th><th>Task</th><th>Status</th><th>Complete</th><th>Incomplete</th><th>Delete</th></tr>
                 {% for td in index_list %}
                     <tr>
-                        <td> {{ td.ID }} </td>
+                        <td><a href="update/{{ td.ID }}"> {{ td.ID }} </a> </td>
                         <td> {{ td.Task }} </td>
                         <td align=center> {% if td.Complete %}&#9989{% endif %} </td>
-                        <td><a href="http://127.0.0.1:5000/complete/{{ td.ID }}">Complete</a></td>
-                        <td><a href="http://127.0.0.1:5000/uncomplete/{{ td.ID }}">Incomplete</a></td>
-                        <td><a href="http://127.0.0.1:5000/delete/{{ td.ID }}">Delete</a></td>
+                        <td><a href="complete/{{ td.ID }}">Complete</a></td>
+                        <td><a href="uncomplete/{{ td.ID }}">Incomplete</a></td>
+                        <td><a href="delete/{{ td.ID }}">Delete</a></td>
                     </tr>
                 </p>
                 {% endfor %}
                 </table>
-                <a href="http://127.0.0.1:5000/addtask">Add New Task</a>
+                <a href="addtask">Add New Task</a>
             </form>
         </div>
     </body>

@@ -84,7 +84,6 @@ def update(id):
         form.Task.data = td.Task
     else:
         if form.validate_on_submit():
-            print(">>>>", form.Task.data)
             td.Task = form.Task.data
             db.session.commit()
             return redirect(url_for('list_index'))
@@ -110,6 +109,7 @@ def addtask():
             td = todos(Task=Task, Complete=False)
             db.session.add(td)
             db.session.commit()
+            return redirect(url_for('list_index'))
 
     return render_template('addtask.html', form=form, message=error)
 
