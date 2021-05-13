@@ -21,10 +21,13 @@
                 {% endif %}
                 <br>
                 {{ form.submit }}
-            </form>
-        </div>
-        <div>
-            <p> You chose: {{ username }} </p>
-        </div>
+
+            </div>
+            <div>
+                {% if not form.username.errors %}
+                    <p>You chose: <b>{{ username }}</b></p>
+                {% endif %}
+            </div>
+        </form>
     <body>
 </html>

@@ -36,7 +36,7 @@ class myForm(FlaskForm):
         DataRequired(),
         # We call our custom validator here, and pass through a message to override the default one. We pass through the list of banned usernames as a list.
         UserCheck(message="Choose another name please",banned = ['root','admin','sys','martin']),
-        SpecialCharacters(message="You can't use special characaters", banned = [';', ':', '@']),
+        SpecialCharacters(message="You can't use special characaters", banned = [';', ':', '@', '#']),
         Length(min=2,max=15)
         ])
     submit = SubmitField('Sign up')
