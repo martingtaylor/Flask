@@ -67,6 +67,24 @@ def list_index():
     all_todos = todos.query.all()
     return render_template('index.html', index_list=all_todos)
 
+@app.route('/indexorder/<string:s>')
+def list_index_order(s):
+    print(">>>", s)
+    if s == "": 
+        s = "1"
+    if s == "1":
+        all_todos = todos.query.order_by(todos.ID.asc()).all()
+    elif s == "2":
+        all_todos = todos.query.order_by(todos.ID.desc()).all()
+    elif s == "3":
+        all_todos = todos.query.order_by(todos.Complete.asc()).all()
+    elif s == "4":
+        all_todos = todos.query.order_by(todos.Complete.desc()).all()
+    else:
+        all_todos = todos.query.all()
+
+    return render_template('indexorder.html', index_list=all_todos)
+
 @app.route('/todos')
 def todos_list():
     all_todos = todos.query.all()

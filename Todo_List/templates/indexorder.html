@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>ToDo List Ordered</title>
+    </head>
+    <body>
+        <div class='form'>
+            <form method='POST' action=''>
+                <table border=1>
+                <tr>
+                    <th>ID<a href="indexorder/1">/\<a href="indexorder/2">\/</a></th>
+                    <th>Task</th><th>Status</th></tr>
+                {% for td in index_list %}
+                    <tr>
+                        <td><a href="update/{{ td.ID }}"> {{ td.ID }} </a> </td>
+                        <td> {{ td.Task }} </td>
+                        <td align=center> {% if td.Complete %}&#9989{% endif %} </td>
+                    </tr>
+                </p>
+                {% endfor %}
+                </table>
+            </form>
+
+        </div>
+    </body>
+</html>
